@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MrShoe's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #ffffff;
+            background-color: #090909;
+        }
+
+        header {
+            background-color: #161616;
+            color: #ffffff;
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 2px solid #444;
+        }
+
+        nav {
+            background-color: #252525;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #444;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            background-color: #333;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background-color: #4dabf7;
+            color: #000;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            scroll-margin-top: 5rem;
+        }
+
+        .about {
+            background-color: #161616;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background-color: #161616;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 1px solid #444;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #252525;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #161616;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #444;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #4dabf7;
+        }
+
+        h2 {
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+            background-color: #161616;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+
+        p {
+            color: #f0f0f0;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MrShoe</h1>
+        <p>Software Developer & Tech Enthusiast</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm MrShoe, a passionate software developer focused on creating efficient and innovative solutions. I specialize in backend development and system architecture, with a keen interest in performance optimization and scalable systems.</p>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <div class="project-img"></div>
+                <h3>Backend Architecture</h3>
+                <p>Developed a high-performance distributed system handling millions of requests per day with 99.99% uptime.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-img"></div>
+                <h3>API Development</h3>
+                <p>Created robust RESTful APIs powering multiple client applications with comprehensive documentation and testing.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-img"></div>
+                <h3>System Optimization</h3>
+                <p>Improved system performance by 300% through intelligent caching and database optimization strategies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-info">
+            <p>Email: mrshoe@example.com</p>
+            <p>Location: Silicon Valley</p>
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 MrShoe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Intersection Observer for scroll spy
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        const header = document.querySelector('header');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px',
+            threshold: 0
+        };
+
+        // Add observer for the header
+        const headerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove active class from all links when at the top
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    // Clear the URL hash
+                    history.replaceState(null, null, window.location.pathname);
+                }
+            });
+        }, { 
+            rootMargin: '-10% 0px' 
+        });
+
+        headerObserver.observe(header);
+
+        // Track if any section is currently visible
+        let isAnySectionVisible = false;
+
+        const observerCallback = (entries) => {
+            isAnySectionVisible = false;
+
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    isAnySectionVisible = true;
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    
+                    // Add active class to corresponding link
+                    const activeId = entry.target.id;
+                    const activeLink = document.querySelector(`nav a[href="#${activeId}"]`);
+                    activeLink.classList.add('active');
+
+                    // Update URL hash
+                    history.replaceState(null, null, `#${activeId}`);
+                }
+            });
+
+            // If no section is visible, clear the hash and active states
+            if (!isAnySectionVisible) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                history.replaceState(null, null, window.location.pathname);
+            }
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        sections.forEach(section => observer.observe(section));
+
+        // Clear hash on page load if at the top
+        if (window.scrollY === 0) {
+            history.replaceState(null, null, window.location.pathname);
+        }
+    </script>
+</body>
+</html>
